@@ -2,13 +2,7 @@
   <!-- Feature area S t a r t -->
   <section class="feature-area feature-bg position-relative">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="section-title">
-            <h4 class="title">Featured Products</h4>
-          </div>
-        </div>
-      </div>
+      <SectionHeader title="Feature Products"></SectionHeader>
       <div class="row">
         <div class="col-lg-12">
           <div class="swiper featureSwiper-active">
