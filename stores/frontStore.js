@@ -1,67 +1,77 @@
-
-export const useTaskStore = defineStore("taskStore", {
+export const useFrontStore = defineStore("taskStore", {
   state: () => ({
-    name: "Munna",
-    tasks: [],
-    loading: false,
+    banner: [
+      {
+        title: "Discover our Exclusive Collection of Luxury Furniture",
+        thumb: "/images/hero/hero-banner-1.png",
+      },
+      {
+        title: "Discover The Premium Furniture in Our Part roll Store",
+        thumb: "/images/hero/04.png",
+      },
+      {
+        title: " Elevate Your Space with Elegant Furniture Designs",
+        thumb: "/images/hero/03.png",
+      },
+    ],
+    brands: [
+      {
+        brand: "/images/brand/1.svg",
+      },
+      {
+        brand: "/images/brand/2.svg",
+      },
+      {
+        brand: "/images/brand/3.svg",
+      },
+      {
+        brand: "/images/brand/4.svg",
+      },
+      {
+        brand: "/images/brand/5.svg",
+      },
+      {
+        brand: "/images/brand/6.svg",
+      },
+      {
+        brand: "/images/brand/7.svg",
+      },
+      {
+        brand: "/images/brand/8.svg",
+      },
+      {
+        brand: "/images/brand/1.svg",
+      },
+      {
+        brand: "/images/brand/2.svg",
+      },
+      {
+        brand: "/images/brand/3.svg",
+      },
+    ],
+    goals: [
+      {
+        thumb: "/images/goal/icon-1.png",
+        title: "Original Product",
+        pera: "There are many variations of passages of our Lorem Ipsum available but the.",
+      },
+      {
+        thumb: "/images/goal/icon-2.png",
+        title: "Satisfaction Guarantee",
+        pera: "There are many variations of passages of our Lorem Ipsum available but the.",
+      },
+      {
+        thumb: "/images/goal/icon-3.png",
+        title: "New Arrival Everyday",
+        pera: "There are many variations of passages of our Lorem Ipsum available but the.",
+      },
+      {
+        thumb: "/images/goal/icon-4.png",
+        title: "Fast & Free Shipping",
+        pera: "There are many variations of passages of our Lorem Ipsum available but the.",
+      },
+    ],
   }),
-  actions: {
-    async getTasks() {
-      this.isLoading = true;
-      const res = await fetch("http://localhost:3000/tasks");
-      const data = await res.json();
-
-      this.tasks = data;
-      this.isLoading = false;
-    },
-    async addTask(task) {
-      this.tasks.push(task);
-      const res = await fetch("http://localhost:3000/tasks", {
-        method: "POST",
-        body: JSON.stringify(task),
-        headers: { "Content-Type": "application/json" },
-      });
-      if (res.error) {
-        console.log(res.error);
-      }
-    },
-    async deleteTask(id) {
-      this.tasks = this.tasks.filter((t) => {
-        return t.id !== id;
-      });
-
-      const res = await fetch("http://localhost:3000/tasks/" + id, {
-        method: "DELETE",
-      });
-      if (res.error) {
-        console.log(res.error);
-      }
-    },
-    async toggleFav(id) {
-      const task = this.tasks.find((t) => t.id === id);
-      task.isFav = !task.isFav;
-
-      const res = await fetch("http://localhost:3000/tasks/" + id, {
-        method: "PATCH",
-        body: JSON.stringify({ isFav: task.isFav }),
-        headers: { "Content-Type": "application/json" },
-      });
-      if (res.error) {
-        console.log(res.error);
-      }
-    },
-  },
-  getters: {
-    favs() {
-      return this.tasks.filter((t) => t.isFav);
-    },
-    favCount() {
-      return this.tasks.reduce((p, c) => {
-        return c.isFav ? p + 1 : p;
-      }, 0);
-    },
-    totalCount(state) {
-      return state.tasks.length;
-    },
-  },
+  actions: {},
+  getters: {},
 });
