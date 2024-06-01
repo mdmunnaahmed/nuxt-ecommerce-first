@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col min-h-screen">
     <Header />
-    <div class="main-wrapper">
+    <main class="w-full">
       <slot />
-    </div>
+    </main>
     <div class="mt-auto w-full"></div>
     <Footer />
   </div>
