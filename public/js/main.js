@@ -1,10 +1,6 @@
 /*----------------------------------------------
     Index Of Script
 ------------------------------------------------
-
-    @version         : 1.0.0
-    @Template Name   : Wodmart
-    @Template author : PointTheme
     
     :: Preloader                    :: Nice Scroll js             
     :: Data-background              :: Hover Tilt Effect        
@@ -350,109 +346,6 @@
         });
     }
 
-    /*----------------------------------------------
-        :: Custom Dropdown
-    ----------------------------------------------*/
-    $(document).ready(function () {
-        function updateTotalQuantity() {
-            var totalQuantity = 0;
-            $(".input-qty").each(function () {
-                totalQuantity += parseInt($(this).val());
-            });
-            if (totalQuantity > 0) {
-                $(".user-result").text(totalQuantity);
-            } else {
-                $(".user-result").text("");
-            }
-        }
-        function updateTotalQuantityTwo() {
-            var totalQuantity = 0;
-            $(".input-qty-two").each(function () {
-                totalQuantity += parseInt($(this).val()) || 0; // Ensure parseInt doesn't return NaN
-            });
-            if (totalQuantity > 0) {
-                $(".calc-user").text(totalQuantity);
-            } else {
-                $(".calc-user").text("");
-            }
-        }
-        $(".qty-btn-plus, .qty-btn-minus").click(function () {
-            var $input = $(this).siblings(".input-qty");
-            var value = parseInt($input.val());
-
-            if ($(this).hasClass("qty-btn-plus")) {
-                value++;
-            } else {
-                if (value > 0) {
-                    value--;
-                }
-            }
-            $input.val(value);
-        });
-        $(".qty-btn-plus-two, .qty-btn-minus-two").click(function () {
-            var $input = $(this).siblings(".input-qty-two");
-            var value = parseInt($input.val());
-
-            if ($(this).hasClass("qty-btn-plus-two")) {
-                value++;
-            } else {
-                if (value > 0) {
-                    value--;
-                }
-            }
-            $input.val(value);
-            updateTotalQuantityTwo();
-        });
-        $(".done-btn").click(function () {
-            updateTotalQuantity();
-        });
-        // Click event for increasing the count
-        $(".increase-num").click(function () {
-            var $input = $(this).siblings(".num-count"); // Find the associated input field
-            var currentValue = parseInt($input.val());
-            var newValue = currentValue + 1;
-            $input.val(newValue.toString().padStart(2, "0")); // Update the value and pad with leading zeros
-        });
-
-        // Click event for decreasing the count
-        $(".decrease-num").click(function () {
-            var $input = $(this).siblings(".num-count"); // Find the associated input field
-            var currentValue = parseInt($input.val());
-            if (currentValue > 0) {
-                var newValue = currentValue - 1;
-                $input.val(newValue.toString().padStart(2, "0")); // Update the value and pad with leading zeros
-            }
-        });
-        $(".increase-num2").click(function () {
-            event.preventDefault();
-            // Extract numeric value from input field
-            var currentValue = parseFloat(
-                $(".num-count2")
-                    .val()
-                    .replace(/[^\d.-]/g, "")
-            );
-
-            if (!isNaN(currentValue) && currentValue < 5.0) {
-                var newValue = currentValue + 1.0;
-                $(".num-count2").val(`(${newValue.toFixed(1)})`);
-            }
-        });
-
-        $(".decrease-num2").click(function () {
-            event.preventDefault();
-            // Extract numeric value from input field
-            var currentValue = parseFloat(
-                $(".num-count2")
-                    .val()
-                    .replace(/[^\d.-]/g, "")
-            );
-
-            if (!isNaN(currentValue) && currentValue > 0.0) {
-                var newValue = currentValue - 1.0;
-                $(".num-count2").val(`(${newValue.toFixed(1)})`);
-            }
-        });
-    });
 
     /*----------------------------------------------
         :: Input Float
@@ -616,59 +509,6 @@
     -----------------------------------*/
     new WOW().init();
 
-    /*-----------------------------------
-        :: Password Show Hide
-    -----------------------------------*/
-    $(document).ready(function () {
-        $(".toggle-password").click(function () {
-            var passwordInput = $($(this).siblings(".password-input"));
-            var icon = $(this);
-            if (passwordInput.attr("type") == "password") {
-                passwordInput.attr("type", "text");
-                icon.removeClass("ri-eye-line").addClass("ri-eye-off-line");
-            } else {
-                passwordInput.attr("type", "password");
-                icon.removeClass("ri-eye-off-line").addClass("ri-eye-line");
-            }
-        });
-    });
-
-    /*-----------------------------------
-        :: Back To Top
-    -----------------------------------*/
-    (function () {
-        var progressPath = document.querySelector(".progressParent path");
-        var pathLength = progressPath?.getTotalLength();
-        if (pathLength) {
-            progressPath.style.transition = progressPath.style.WebkitTransition = "none";
-            progressPath.style.strokeDasharray = pathLength + " " + pathLength;
-            progressPath.style.strokeDashoffset = pathLength;
-            progressPath.getBoundingClientRect();
-            progressPath.style.transition = progressPath.style.WebkitTransition = "stroke-dashoffset 10ms linear";
-            var updateProgress = function () {
-                var scroll = $(window).scrollTop();
-                var height = $(document).height() - $(window).height();
-                var progress = pathLength - (scroll * pathLength) / height;
-                progressPath.style.strokeDashoffset = progress;
-            };
-            updateProgress();
-            $(window).scroll(updateProgress);
-            var offset = 50;
-            var duration = 550;
-            jQuery(window).on("scroll", function () {
-                if (jQuery(this).scrollTop() > offset) {
-                    jQuery(".progressParent").addClass("rn-backto-top-active");
-                } else {
-                    jQuery(".progressParent").removeClass("rn-backto-top-active");
-                }
-            });
-            jQuery(".progressParent").on("click", function (event) {
-                event.preventDefault();
-                jQuery("html, body").animate({ scrollTop: 0 }, duration);
-                return false;
-            });
-        }
-    })();
 
 
 })(jQuery);

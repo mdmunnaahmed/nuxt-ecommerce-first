@@ -2,19 +2,19 @@
   <div class="product-card feature-card h-calc">
     <div class="top-card">
       <div class="price-section">
-        <h4 class="price discounted">$250</h4>
-        <h4 class="price text-color-primary">$200</h4>
+        <h4 class="price discounted">${{ price }}</h4>
+        <h4 class="price text-color-primary">$ {{ discountPrice }}</h4>
       </div>
       <button class="wishlist-icon">
         <img src="/images/icon/wish-icon-2.png" alt="img" />
       </button>
     </div>
     <div class="product-img-card feature-img-card">
-      <a href="shop-details.html" class="zoomImg">
-        <img src="/images/product/product-1.png" alt="img" />
+      <a :href="slug" class="zoomImg">
+        <img :src="thumb" alt="img" />
       </a>
       <div class="discount-badge">
-        <span class="percentage">- 25%</span>
+        <span class="percentage">- {{ discount.toFixed(0) }}%</span>
       </div>
       <div class="special-icon">
         <button class="icon-btn">
@@ -64,8 +64,8 @@
         </button>
       </div>
     </div>
-    <a href="shop-details.html">
-      <h4 class="product-title line-clamp-1">Barrel Chair Avenue</h4>
+    <a :href="slug">
+      <h4 class="product-title line-clamp-1">{{ title }}</h4>
     </a>
     <div class="product-review">
       <div class="product-ratting">
@@ -78,8 +78,8 @@
       <p class="count-ratting">(52)</p>
     </div>
     <div class="cart-card feature-cart-card d-none d-md-block">
-      <a href="shop-details.html">
-        <h4 class="product-title line-clamp-1">Barrel Chair Avenue</h4>
+      <a :href="slug">
+        <h4 class="product-title line-clamp-1">{{ title }}</h4>
       </a>
       <div class="product-review">
         <div class="product-ratting">
@@ -92,7 +92,7 @@
         <p class="count-ratting">(31)</p>
       </div>
       <div class="button-section">
-        <a href="javascript:void(0)" class="cart-btn">Add to Cart</a>
+        <button class="cart-btn">Add to Cart</button>
         <div class="fill-pill-btn qty-btn">
           <div class="qty-container featury-qty-container">
             <div class="qty-btn-minus qty-btn mr-1">
@@ -112,7 +112,22 @@
       </div>
     </div>
     <div class="button-section d-block d-md-none">
-      <a href="javascript:void(0)" class="cart-btn">Add to Cart</a>
+      <button class="cart-btn">Add to Cart</button>
     </div>
   </div>
 </template>
+
+<script>
+import useSlug from "~/composables/useSlug";
+export default {
+  props: ["thumb", "title", "price", "discountPrice"],
+  setup(props) {
+    const { slug } = useSlug(props.title);
+    const discount = ((props.price - props.discountPrice) * 100) / props.price;
+    return {
+      discount,
+      slug
+    };
+  },
+};
+</script>
