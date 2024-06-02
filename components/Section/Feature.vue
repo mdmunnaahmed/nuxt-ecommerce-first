@@ -13,6 +13,7 @@
                 :key="index"
               >
                 <ProductItem
+                  :sku="product.sku"
                   :thumb="product.thumb[0]"
                   :title="product.title"
                   :price="product.price"
@@ -20,10 +21,16 @@
                 ></ProductItem>
               </div>
             </div>
-            <div class="swiper-button-next swiper-common-btn" v-if="products.length > 4">
+            <div
+              class="swiper-button-next swiper-common-btn"
+              v-if="products.length > 4"
+            >
               <i class="ri-arrow-right-s-line"></i>
             </div>
-            <div class="swiper-button-prev swiper-common-btn" v-if="products.length > 4">
+            <div
+              class="swiper-button-prev swiper-common-btn"
+              v-if="products.length > 4"
+            >
               <i class="ri-arrow-left-s-line"></i>
             </div>
           </div>
@@ -41,7 +48,7 @@ export default {
   setup() {
     const frontStore = useFrontStore();
     const products = frontStore.products;
-    console.log(products);
+
     return {
       products,
     };

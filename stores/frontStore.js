@@ -1,4 +1,4 @@
-export const useFrontStore = defineStore("taskStore", {
+export const useFrontStore = defineStore("frontStore", {
   state: () => ({
     banner: [
       {
@@ -169,6 +169,8 @@ export const useFrontStore = defineStore("taskStore", {
       },
     ],
   }),
-  actions: {},
+  actions: {
+    
+  },
   getters: {},
 });

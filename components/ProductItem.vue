@@ -3,7 +3,7 @@
     <div class="top-card">
       <div class="price-section">
         <h4 class="price discounted">${{ price }}</h4>
-        <h4 class="price text-color-primary">$ {{ discountPrice }}</h4>
+        <h4 class="price text-color-primary">${{ discountPrice }}</h4>
       </div>
       <button class="wishlist-icon">
         <img src="/images/icon/wish-icon-2.png" alt="img" />
@@ -95,16 +95,16 @@
         <button class="cart-btn">Add to Cart</button>
         <div class="fill-pill-btn qty-btn">
           <div class="qty-container featury-qty-container">
-            <div class="qty-btn-minus qty-btn mr-1">
+            <div class="qty-btn-minus qty-btn mr-1" @click="dec">
               <i class="ri-subtract-fill"></i>
             </div>
             <input
-              type="text"
-              name="qty"
-              value="0"
+              type="tel"
               class="input-qty input-rounded"
+              v-model="qty"
+              disabled
             />
-            <div class="qty-btn-plus qty-btn ml-1">
+            <div class="qty-btn-plus qty-btn ml-1" @click="inc">
               <i class="ri-add-fill"></i>
             </div>
           </div>
@@ -119,14 +119,38 @@
 
 <script>
 import useSlug from "~/composables/useSlug";
+import { useFrontStore } from "../../stores/frontStore";
 export default {
-  props: ["thumb", "title", "price", "discountPrice"],
+  props: ["thumb", "title", "price", "discountPrice", "sku"],
   setup(props) {
+    const frontStore = useFrontStore();
     const { slug } = useSlug(props.title);
     const discount = ((props.price - props.discountPrice) * 100) / props.price;
+    const sku = props.sku;
+    const qty = ref(1);
+    const inc = () => {
+      if (qty.value < 10) {
+        qty.value += 1;
+      }
+    };
+    const dec = () => {
+      if (qty.value > 1) {
+        qty.value -= 1;
+      }
+    };
+    const addToCart = () => {
+      frontStore.addProductToCart({
+        
+      })
+    };
     return {
       discount,
-      slug
+      slug,
+      inc,
+      qty,
+      dec,
+      sku,
+      addToCart,
     };
   },
 };

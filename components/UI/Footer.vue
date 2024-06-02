@@ -36,7 +36,7 @@
               <div class="footer-menu-section">
                 <div class="logo logo-large light-logo">
                   <a href="index.html"
-                    ><img src="../../images/logo/logo-dark.png" alt="logo"
+                    ><img src="/images/logo/logo-dark.png" alt="logo"
                   /></a>
                 </div>
                 <div class="footer-social-section">
@@ -139,7 +139,7 @@
               </a>
             </div>
             <div class="payment-list">
-              <img src="../../images/logo/payment-list.png" alt="img" />
+              <img src="/images/logo/payment-list.png" alt="img" />
             </div>
           </div>
         </div>

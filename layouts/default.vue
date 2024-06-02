@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col min-h-screen">
-    <Header />
+    <UIHeader />
     <main class="w-full">
       <slot />
     </main>
     <div class="mt-auto w-full"></div>
-    <Footer />
+    <UIFooter />
   </div>
 </template>
