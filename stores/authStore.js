@@ -39,7 +39,6 @@ export const useAuthStore = defineStore("authStore", {
       }
     },
     loginAccount(info) {
-      console.log(info.lastLogin_at);
       const user = this.userAccounts.find((u) => (u.email === info.email || u.username === info.email) && u.password === info.password);
       if (user) {
         this.authUser = user;
@@ -60,7 +59,6 @@ export const useAuthStore = defineStore("authStore", {
       this.authUser = [];
       localStorage.removeItem("user");
       localStorage.removeItem("isLoggedIn");
-      console.log("apple");
     },
   },
   getters: {},
