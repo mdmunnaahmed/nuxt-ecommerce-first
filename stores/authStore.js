@@ -23,6 +23,20 @@ export const useAuthStore = defineStore("authStore", {
     ],
   }),
   actions: {
+    async checkAuthentication() {
+      const userData = await fetchUserDataFromLocalStorage();
+      this.isLoggedIn = !!userData;
+      this.authUser = userData;
+      console.log(userData);
+    },
+    addUserAccount(info) {
+      const existUser = this.userAccounts.find((u) => info.username === u.username);
+      if(!existUser) {
+        this.userAccounts.push(info);
+        localStorage.setItem("user", JSON.stringify(info));
+        localStorage.setItem("isLoggedIn", true);
+      }
+    },
     loginAccount(info) {
       const user = this.userAccounts.find((u) => (u.email === info.email || u.username === info.email) && u.password === info.password);
       console.log(info);
@@ -42,3 +56,12 @@ export const useAuthStore = defineStore("authStore", {
   },
   getters: {},
 });
+
+async function fetchUserDataFromLocalStorage() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const storedUserData = JSON.parse(localStorage.getItem("user"));
+      resolve(storedUserData);
+    }, 0);
+  });
+}

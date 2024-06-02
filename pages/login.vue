@@ -102,8 +102,8 @@
 import { useAuthStore } from "~/stores/authStore";
 const authStore = useAuthStore();
 const router = useRouter();
-const email = ref("");
-const password = ref("");
+const email = ref("munns");
+const password = ref("munns");
 const success = computed(() => {
   return authStore.success;
 });
@@ -118,7 +118,7 @@ const submitForm = () => {
     });
     email.value = "";
     password.value = "";
-    // router.push("/profile");
+    router.push("/profile");
   }
 };
 const isPasswordVisible = ref(false);

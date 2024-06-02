@@ -6,8 +6,16 @@
   </div>
 </template>
 
-
 <script setup>
+import { ref, onBeforeMount } from "vue";
+import { useAuthStore } from "~/stores/authStore";
+
+const authStore = useAuthStore();
+
+onBeforeMount(async () => {
+  await authStore.checkAuthentication();
+});
+
 useHead({
   link: [
     {
