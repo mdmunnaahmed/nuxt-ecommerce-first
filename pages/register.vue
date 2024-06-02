@@ -131,7 +131,31 @@
 
 <script setup>
 import { useAuthStore } from "~/stores/authStore";
-const router = useRouter()
+function formatCurrentDateTime() {
+  const now = new Date();
+
+  // Get hours and minutes
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  const ampm = hours >= 12 ? "pm" : "am";
+
+  // Format hours to 12-hour format
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? "0" + minutes : minutes; // Pad single digit minutes
+
+  // Get day, month, and year
+  const day = now.getDate();
+  const month = now.toLocaleString("default", { month: "short" });
+  const year = now.getFullYear().toString().slice(-2); // Get last 2 digits of the year
+
+  // Format date and time
+  const formattedTime = `${hours}:${minutes}${ampm}`;
+  const formattedDate = `${day} ${month} ${year}`;
+
+  return `${formattedTime}, ${formattedDate}`;
+}
+const router = useRouter();
 const authStore = useAuthStore();
 const name = ref("");
 const email = ref("");
@@ -176,8 +200,9 @@ const submitForm = () => {
       email: email.value,
       username: username.value,
       password: password,
+      created_at: formatCurrentDateTime(),
     });
-    router.push('/profile')
+    // router.push("/profile");
   }
 };
 

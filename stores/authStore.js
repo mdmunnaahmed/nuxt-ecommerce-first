@@ -19,6 +19,8 @@ export const useAuthStore = defineStore("authStore", {
           addr2: "Kushtia, Khulna",
           zip: "7020",
         },
+        created_at: "",
+        lastLogin_at: "",
       },
     ],
   }),
@@ -27,21 +29,21 @@ export const useAuthStore = defineStore("authStore", {
       const userData = await fetchUserDataFromLocalStorage();
       this.isLoggedIn = !!userData;
       this.authUser = userData;
-      console.log(userData);
     },
     addUserAccount(info) {
       const existUser = this.userAccounts.find((u) => info.username === u.username);
-      if(!existUser) {
+      if (!existUser) {
         this.userAccounts.push(info);
         localStorage.setItem("user", JSON.stringify(info));
         localStorage.setItem("isLoggedIn", true);
       }
     },
     loginAccount(info) {
+      console.log(info.lastLogin_at);
       const user = this.userAccounts.find((u) => (u.email === info.email || u.username === info.email) && u.password === info.password);
-      console.log(info);
       if (user) {
         this.authUser = user;
+        this.authUser.lastLogin_at = info.lastLogin_at;
         this.isLoggedIn = true;
         localStorage.setItem("user", JSON.stringify(user));
         localStorage.setItem("isLoggedIn", true);
@@ -52,6 +54,13 @@ export const useAuthStore = defineStore("authStore", {
         this.error = true;
       }
       new Promise((resolve) => setTimeout(resolve, 300));
+    },
+    logout() {
+      this.isLoggedIn = false;
+      this.authUser = [];
+      localStorage.removeItem("user");
+      localStorage.removeItem("isLoggedIn");
+      console.log("apple");
     },
   },
   getters: {},
