@@ -1,4 +1,12 @@
 <template>
+  <div class="loading-page" id="preloader-active">
+    <div class="counter">
+      <img src="/images/logo/logo.png" alt="img" />
+      <span class="number">0%</span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </div>
+  </div>
   <div>
     <NuxtLayout>
       <NuxtPage />
@@ -7,7 +15,7 @@
 </template>
 
 <script setup>
-import { ref, onBeforeMount } from "vue";
+import { onBeforeMount } from "vue";
 import { useAuthStore } from "~/stores/authStore";
 
 const authStore = useAuthStore();

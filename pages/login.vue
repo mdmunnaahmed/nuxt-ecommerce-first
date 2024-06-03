@@ -134,7 +134,7 @@ function formatCurrentDateTime() {
 }
 const authStore = useAuthStore();
 const router = useRouter();
-const email = ref("munns");
+const email = ref("msdmunna77@gmail.com");
 const password = ref("munns");
 const success = computed(() => {
   return authStore.success;

@@ -26,9 +26,9 @@
                           fill="#AD8C5C"
                         />
                       </svg>
-                      <a href="order-track.html">
+                      <nuxt-link href="">
                         <p class="pera text-color-primary">Track Your Order</p>
-                      </a>
+                      </nuxt-link>
                     </div>
                     <div class="top-menu">
                       <svg
@@ -43,11 +43,11 @@
                           fill="#AD8C5C"
                         />
                       </svg>
-                      <a href="javascript:void(0)">
+                      <nuxt-link href="javascript:void(0)">
                         <p class="pera text-color-secondary">
                           infoyour@gmail.com
                         </p>
-                      </a>
+                      </nuxt-link>
                     </div>
                   </div>
                   <!--Top Right Side -->
@@ -93,9 +93,9 @@
                           </clipPath>
                         </defs>
                       </svg>
-                      <a href="login.html">
-                        <p class="pera text-color-primary">Login/ Regeister</p>
-                      </a>
+                      <nuxt-link href="/login">
+                        <p class="pera text-color-primary">Login / Regeister</p>
+                      </nuxt-link>
                     </div>
                   </div>
                 </div>
@@ -116,183 +116,171 @@
                       >
                         <!-- Logo-->
                         <div class="logo logo-large light-logo">
-                          <a href="index.html"
+                          <nuxt-link href="index.html"
                             ><img src="/images/logo/logo.png" alt="logo"
-                          /></a>
+                          /></nuxt-link>
                         </div>
                         <div class="search-header-position d-block d-lg-none">
                           <div class="d-flex gap-15">
                             <div class="search-bar">
-                              <a href="javascript:void(0)" class="rounded-btn">
+                              <nuxt-link
+                                href="javascript:void(0)"
+                                class="rounded-btn"
+                              >
                                 <i class="ri-search-line"></i>
-                              </a>
+                              </nuxt-link>
                             </div>
                           </div>
                         </div>
                         <ul class="listing d-none d-lg-block" id="navigation">
                           <li class="single-list">
-                            <a href="javascript:void(0)" class="single active"
+                            <nuxt-link
+                              href="javascript:void(0)"
+                              class="single active"
                               >Home <i class="ri-arrow-down-s-line"></i
-                            ></a>
+                            ></nuxt-link>
                             <ul class="submenu">
                               <li class="single-list">
-                                <a href="index.html" class="single active"
-                                  >Home 01</a
+                                <nuxt-link href="/" class="single active"
+                                  >Home 01</nuxt-link
                                 >
                               </li>
                               <li class="single-list">
-                                <a href="index-two.html" class="single"
-                                  >Home 02</a
+                                <nuxt-link href="/home-two" class="single"
+                                  >Home 02</nuxt-link
                                 >
                               </li>
                             </ul>
                           </li>
                           <li class="single-list">
-                            <a href="about.html" class="single">About</a>
+                            <nuxt-link href="/about" class="single"
+                              >About</nuxt-link
+                            >
                           </li>
                           <li class="single-list">
-                            <a href="shop.html" class="single">Shop</a>
+                            <nuxt-link href="/shop" class="single"
+                              >Shop</nuxt-link
+                            >
                           </li>
                           <li class="single-list">
-                            <a href="blog.html" class="single">Blog</a>
+                            <nuxt-link href="/blog" class="single"
+                              >Blog</nuxt-link
+                            >
                           </li>
                           <li class="single-list">
-                            <a href="javascript:void(0)" class="single"
+                            <nuxt-link href="javascript:void(0)" class="single"
                               >Pages <i class="ri-arrow-down-s-line"></i
-                            ></a>
+                            ></nuxt-link>
                             <ul class="submenu">
                               <li class="single-list">
-                                <a href="wishlist.html" class="single"
-                                  >Wishlist</a
+                                <nuxt-link href="wishlist.html" class="single"
+                                  >Wishlist</nuxt-link
                                 >
                               </li>
                               <li class="single-list">
-                                <a href="blog-details.html" class="single"
-                                  >Blog Details</a
-                                >
-                              </li>
-                              <li class="single-list">
-                                <a href="shop-details.html" class="single"
-                                  >Shop Details</a
-                                >
-                              </li>
-                              <li class="single-list">
-                                <a href="order-track.html" class="single"
-                                  >Order Track</a
-                                >
-                              </li>
-                              <li class="single-list">
-                                <a href="shopping-cart.html" class="single"
-                                  >Shopping Cart</a
-                                >
-                              </li>
-                              <li class="single-list">
-                                <a href="checkout.html" class="single"
-                                  >Checkout</a
-                                >
-                              </li>
-                              <li class="single-list">
-                                <a href="javascript:void(0)" class="single"
+                                <nuxt-link
+                                  href="javascript:void(0)"
+                                  class="single"
                                   >Login<i class="ri-arrow-right-s-line"></i
-                                ></a>
+                                ></nuxt-link>
                                 <ul class="submenu">
                                   <li class="single-list">
-                                    <a href="login.html" class="single"
-                                      >Login</a
+                                    <nuxt-link href="login.html" class="single"
+                                      >Login</nuxt-link
                                     >
                                   </li>
                                   <li class="single-list">
-                                    <a href="register.html" class="single"
-                                      >Registration</a
+                                    <nuxt-link
+                                      href="register.html"
+                                      class="single"
+                                      >Registration</nuxt-link
                                     >
                                   </li>
                                   <li class="single-list">
-                                    <a href="forgot-pass.html" class="single"
-                                      >Forgot Password</a
+                                    <nuxt-link
+                                      href="forgot-pass.html"
+                                      class="single"
+                                      >Forgot Password</nuxt-link
                                     >
                                   </li>
                                   <li class="single-list">
-                                    <a href="verification.html" class="single"
-                                      >Verification</a
+                                    <nuxt-link
+                                      href="verification.html"
+                                      class="single"
+                                      >Verification</nuxt-link
                                     >
                                   </li>
                                   <li class="single-list">
-                                    <a href="new-password.html" class="single"
-                                      >New Password</a
+                                    <nuxt-link
+                                      href="new-password.html"
+                                      class="single"
+                                      >New Password</nuxt-link
                                     >
                                   </li>
                                 </ul>
                               </li>
 
                               <li class="single-list">
-                                <a href="faq.html" class="single">FAQs</a>
-                              </li>
-                              <li class="single-list">
-                                <a href="privacy-policy.html" class="single"
-                                  >privacy policy</a
+                                <nuxt-link href="/faq" class="single"
+                                  >FAQs</nuxt-link
                                 >
                               </li>
                               <li class="single-list">
-                                <a href="terms-condition.html" class="single"
-                                  >terms-condition</a
+                                <nuxt-link href="/privacy-policy" class="single"
+                                  >privacy policy</nuxt-link
+                                >
+                              </li>
+                              <li class="single-list">
+                                <nuxt-link
+                                  href="/terms-condition"
+                                  class="single"
+                                  >terms-condition</nuxt-link
                                 >
                               </li>
                             </ul>
                           </li>
                           <li class="single-list">
-                            <a href="contact.html" class="single">Contact</a>
+                            <nuxt-link href="/contact" class="single"
+                              >Contact</nuxt-link
+                            >
                           </li>
                           <li class="d-block d-lg-none">
                             <div class="login-wrapper">
-                              <a href="login.html">
+                              <nuxt-link href="/login">
                                 <p class="pera text-color-primary">
                                   Login/ Regeister
                                 </p>
-                              </a>
+                              </nuxt-link>
                             </div>
                           </li>
                           <li class="d-block d-lg-none">
                             <div class="login-wrapper">
-                              <a href="shopping-cart.html">
+                              <nuxt-link href="/shopping-cart">
                                 <p class="pera text-color-primary">Cart</p>
-                              </a>
+                              </nuxt-link>
                             </div>
                           </li>
                           <li class="d-block d-lg-none">
                             <div class="login-wrapper">
-                              <a href="wishlist.html">
+                              <nuxt-link href="/wishlist">
                                 <p class="pera text-color-primary">Wishlist</p>
-                              </a>
+                              </nuxt-link>
                             </div>
                           </li>
                           <li class="d-block d-lg-none">
                             <div class="login-wrapper">
-                              <a href="order-track.html">
+                              <nuxt-link href="/order-track">
                                 <p class="pera text-color-primary">
                                   Track Order
                                 </p>
-                              </a>
+                              </nuxt-link>
                             </div>
                           </li>
                         </ul>
                         <div class="d-none d-lg-block">
                           <div class="header-right">
-                            <div class="header-icon search-bar">
-                              <svg
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M22.785 23.9941C22.5326 23.8063 22.2509 23.6479 22.0337 23.4249C19.9089 21.3181 17.8017 19.1996 15.6886 17.0869C15.624 17.0224 15.583 16.9344 15.5301 16.8522C13.0884 18.7242 10.4177 19.3991 7.47701 18.7653C5.02937 18.2372 3.07479 16.8991 1.67195 14.8334C-1.0046 10.9192 -0.370684 5.87229 2.88109 2.71505C6.52026 -0.811896 11.932 -0.817765 15.5712 2.2045C19.3747 5.36174 20.3021 11.1539 16.8978 15.4672C16.9564 15.5318 17.0151 15.5963 17.0797 15.6609C19.1928 17.7736 21.3117 19.8862 23.4189 22.0106C23.642 22.2395 23.8063 22.5211 24 22.7794C24 22.9202 24 23.061 24 23.2019C23.865 23.6009 23.6009 23.865 23.2017 24C23.0667 23.9941 22.9259 23.9941 22.785 23.9941ZM17.0034 9.49314C16.9799 5.34413 13.6166 1.99323 9.49616 2.00497C5.35807 2.02258 1.99478 5.39108 2.01238 9.51075C2.02999 13.648 5.35807 17.0048 9.51377 16.993C13.7164 16.9813 16.9799 13.6069 17.0034 9.49314Z"
-                                  fill="currentColor"
-                                />
-                              </svg>
-                            </div>
-                            <div class="header-icon">
-                              <a href="login.html">
+                            <div class="header-icon" v-if="isLoggedIn">
+                              <nuxt-link href="/profile">
                                 <svg
                                   width="26"
                                   height="26"
@@ -324,10 +312,10 @@
                                     </clipPath>
                                   </defs>
                                 </svg>
-                              </a>
+                              </nuxt-link>
                             </div>
                             <div class="header-icon">
-                              <a href="wishlist.html">
+                              <nuxt-link href="/wishlist">
                                 <svg
                                   width="28"
                                   height="24"
@@ -344,10 +332,10 @@
                                 <div class="count">
                                   <span class="count-num">4</span>
                                 </div>
-                              </a>
+                              </nuxt-link>
                             </div>
                             <div class="header-icon">
-                              <a href="shopping-cart.html">
+                              <nuxt-link href="/cart">
                                 <svg
                                   width="22"
                                   height="24"
@@ -364,7 +352,7 @@
                                 <div class="count">
                                   <span class="count-num">3</span>
                                 </div>
-                              </a>
+                              </nuxt-link>
                             </div>
                           </div>
                         </div>
@@ -381,379 +369,15 @@
           </div>
         </div>
       </div>
-      <!-- search overlay -->
-      <div class="search-container">
-        <div class="top-section">
-          <div class="search-icon">
-            <i class="ri-search-line"></i>
-          </div>
-          <div class="modal-search-box">
-            <input
-              type="text"
-              id="searchField"
-              class="search-field"
-              placeholder="Search..."
-            />
-            <button id="closeSearch" class="close-search-btn">
-              <kbd class="light-text"> ESC </kbd>
-            </button>
-          </div>
-        </div>
-        <div class="body-section">
-          <div class="row">
-            <div class="col-md-8">
-              <ul class="listing">
-                <li>
-                  <h4 class="search-label">Recent</h4>
-                </li>
-                <li class="single-list">
-                  <a href="javascript:void(0)">
-                    <div class="search-flex">
-                      <div class="content-img">
-                        <img src="/images/news/news-1.png" alt="img" />
-                      </div>
-                      <div class="content">
-                        <h4 class="title line-clamp-1">
-                          Modern studio apartment design bedroom and living
-                          space
-                        </h4>
-                        <p class="pera line-clamp-2">
-                          Wonderful evening escapade starting at Madinat
-                          Jumeirah to the musical fountains to see another.
-                          Wonderful evening escapade starting at Madinat
-                          Jumeirah to the musical fountains to see another
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="single-list">
-                  <a href="javascript:void(0)">
-                    <div class="search-flex">
-                      <div class="content-img">
-                        <img src="/images/news/news-2.png" alt="img" />
-                      </div>
-                      <div class="content">
-                        <h4 class="title line-clamp-1">
-                          Comfortable armchair in a room decorated
-                        </h4>
-                        <p class="pera line-clamp-2">
-                          Give a great end to your day in Dubai with our premium
-                          evening Red Dune Desert Safari. Give a great end to
-                          your day in Dubai with our premium evening Red Dune
-                          Desert Safari.
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="single-list">
-                  <a href="javascript:void(0)">
-                    <div class="search-flex">
-                      <div class="content-img">
-                        <img src="/images/news/news-3.png" alt="img" />
-                      </div>
-                      <div class="content">
-                        <h4 class="title line-clamp-1">
-                          Cafe with coffee tables as sofas plants and shelves
-                        </h4>
-                        <p class="pera line-clamp-2">
-                          Admission to Dubai’s biggest, multicultural festival
-                          park with replicas of iconic landmarks. Admission to
-                          Dubai’s biggest, multicultural festival park with
-                          replicas of iconic landmarks
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <h4 class="search-label">Recent</h4>
-                </li>
-                <li class="single-list">
-                  <a href="javascript:void(0)">
-                    <div class="search-flex">
-                      <div class="content-img">
-                        <img src="/images/news/news-1.png" alt="img" />
-                      </div>
-                      <div class="content">
-                        <h4 class="title line-clamp-1">
-                          Modern studio apartment design bedroom and living
-                          space
-                        </h4>
-                        <p class="pera line-clamp-2">
-                          Wonderful evening escapade starting at Madinat
-                          Jumeirah to the musical fountains to see another.
-                          Wonderful evening escapade starting at Madinat
-                          Jumeirah to the musical fountains to see another
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="single-list">
-                  <a href="javascript:void(0)">
-                    <div class="search-flex">
-                      <div class="content-img">
-                        <img src="/images/news/news-2.png" alt="img" />
-                      </div>
-                      <div class="content">
-                        <h4 class="title line-clamp-1">
-                          Comfortable armchair in a room decorated
-                        </h4>
-                        <p class="pera line-clamp-2">
-                          Give a great end to your day in Dubai with our premium
-                          evening Red Dune Desert Safari. Give a great end to
-                          your day in Dubai with our premium evening Red Dune
-                          Desert Safari.
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="single-list">
-                  <a href="javascript:void(0)">
-                    <div class="search-flex">
-                      <div class="content-img">
-                        <img src="/images/news/news-3.png" alt="img" />
-                      </div>
-                      <div class="content">
-                        <h4 class="title line-clamp-1">
-                          Cafe with coffee tables as sofas plants and shelves
-                        </h4>
-                        <p class="pera line-clamp-2">
-                          Admission to Dubai’s biggest, multicultural festival
-                          park with replicas of iconic landmarks. Admission to
-                          Dubai’s biggest, multicultural festival park with
-                          replicas of iconic landmarks
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-4">
-              <div class="right-section" id="filterMenu">
-                <h4 class="title">Filter Options</h4>
-                <!-- List of Filter -->
-                <ul class="listing">
-                  <li>
-                    <h4 class="search-label">Post Type</h4>
-                  </li>
-                  <li class="single-list">
-                    <div class="d-flex align-items-center gap-8">
-                      <label class="checkbox-label">
-                        <input
-                          class="checkbox-style"
-                          type="checkbox"
-                          value="remember"
-                          name="remember"
-                        />
-                        <span class="checkmark-style"></span>
-                      </label>
-                      <div class="content">
-                        <p class="pera">Posts (3)</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="single-list">
-                    <div class="d-flex align-items-center gap-8">
-                      <label class="checkbox-label">
-                        <input
-                          class="checkbox-style"
-                          type="checkbox"
-                          value="remember"
-                          name="remember"
-                        />
-                        <span class="checkmark-style"></span>
-                      </label>
-                      <div class="content">
-                        <p class="pera">Posts (3)</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="single-list">
-                    <div class="d-flex align-items-center gap-8">
-                      <label class="checkbox-label">
-                        <input
-                          class="checkbox-style"
-                          type="checkbox"
-                          value="remember"
-                          name="remember"
-                        />
-                        <span class="checkmark-style"></span>
-                      </label>
-                      <div class="content">
-                        <p class="pera">Links (44)</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="single-list">
-                    <div class="d-flex align-items-center gap-8">
-                      <label class="checkbox-label">
-                        <input
-                          class="checkbox-style"
-                          type="checkbox"
-                          value="remember"
-                          name="remember"
-                        />
-                        <span class="checkmark-style"></span>
-                      </label>
-                      <div class="content">
-                        <p class="pera">Blogs (23)</p>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-                <!-- List of Filter -->
-                <ul class="listing">
-                  <li>
-                    <h4 class="search-label">Categories</h4>
-                  </li>
-                  <li class="single-list">
-                    <div class="d-flex align-items-center gap-8">
-                      <label class="checkbox-label">
-                        <input
-                          class="checkbox-style"
-                          type="checkbox"
-                          value="remember"
-                          name="remember"
-                        />
-                        <span class="checkmark-style"></span>
-                      </label>
-                      <div class="content">
-                        <p class="pera">Articles (3)</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="single-list">
-                    <div class="d-flex align-items-center gap-8">
-                      <label class="checkbox-label">
-                        <input
-                          class="checkbox-style"
-                          type="checkbox"
-                          value="remember"
-                          name="remember"
-                        />
-                        <span class="checkmark-style"></span>
-                      </label>
-                      <div class="content">
-                        <p class="pera">Poll (3)</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="single-list">
-                    <div class="d-flex align-items-center gap-8">
-                      <label class="checkbox-label">
-                        <input
-                          class="checkbox-style"
-                          type="checkbox"
-                          value="remember"
-                          name="remember"
-                        />
-                        <span class="checkmark-style"></span>
-                      </label>
-                      <div class="content">
-                        <p class="pera">Article (44)</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="single-list">
-                    <div class="d-flex align-items-center gap-8">
-                      <label class="checkbox-label">
-                        <input
-                          class="checkbox-style"
-                          type="checkbox"
-                          value="remember"
-                          name="remember"
-                        />
-                        <span class="checkmark-style"></span>
-                      </label>
-                      <div class="content">
-                        <p class="pera">Blogs (23)</p>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-                <!-- List of Filter -->
-                <ul class="listing">
-                  <li>
-                    <h4 class="search-label">ecommerce</h4>
-                  </li>
-                  <li class="single-list">
-                    <div class="d-flex align-items-center gap-8">
-                      <label class="checkbox-label">
-                        <input
-                          class="checkbox-style"
-                          type="checkbox"
-                          value="remember"
-                          name="remember"
-                        />
-                        <span class="checkmark-style"></span>
-                      </label>
-                      <div class="content">
-                        <p class="pera">Articles (3)</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="single-list">
-                    <div class="d-flex align-items-center gap-8">
-                      <label class="checkbox-label">
-                        <input
-                          class="checkbox-style"
-                          type="checkbox"
-                          value="remember"
-                          name="remember"
-                        />
-                        <span class="checkmark-style"></span>
-                      </label>
-                      <div class="content">
-                        <p class="pera">Poll (3)</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="single-list">
-                    <div class="d-flex align-items-center gap-8">
-                      <label class="checkbox-label">
-                        <input
-                          class="checkbox-style"
-                          type="checkbox"
-                          value="remember"
-                          name="remember"
-                        />
-                        <span class="checkmark-style"></span>
-                      </label>
-                      <div class="content">
-                        <p class="pera">Article (44)</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="single-list">
-                    <div class="d-flex align-items-center gap-8">
-                      <label class="checkbox-label">
-                        <input
-                          class="checkbox-style"
-                          type="checkbox"
-                          value="remember"
-                          name="remember"
-                        />
-                        <span class="checkmark-style"></span>
-                      </label>
-                      <div class="content">
-                        <p class="pera">Blogs (23)</p>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="div">
-              <div class="filter_menu"></div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </header>
 </template>
+
+
+<script setup>
+import { useAuthStore } from "~/stores/authStore";
+const authStore = useAuthStore();
+const isLoggedIn = computed(() => {
+  return authStore.isLoggedIn;
+});
+</script>
