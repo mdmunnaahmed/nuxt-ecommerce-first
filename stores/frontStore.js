@@ -81,7 +81,7 @@ export const useFrontStore = defineStore("frontStore", {
         price: 850,
         discountPrice: 650,
         qty: 560,
-        category: ["pink", "shirt", "pant", "hudi"],
+        category: ["Exclusive Papillon XL Beds", "shirt", "pant", "Contemporary Sofa"],
         color: ["red"],
         brand: "Huawei",
         tag: ["Chairs", "Sofa", "Single Sofa"],
@@ -103,7 +103,7 @@ export const useFrontStore = defineStore("frontStore", {
         category: ["electronics", "mobile", "phone", "gadget"],
         color: ["red"],
         brand: "Apple",
-        tag: ["Chairs", "Sofa", "Single Sofa"],
+        tag: ["Luxury Chat Chair", "Sofa", "Mambo Lamp Light Sofa"],
         des: "Curabitur egestas malesuada volutpat. Nunc vel vestibulum odio, ac pellentesque lacus. Pellentesque dapibus nunc nec est as erdiet, a malesuada sem rutrum. Sed quam odio, porta a finibus quis, sagittis aliquet leo. Nunc ornare asmetus urna, eu luctusi velit placerat ut. Cras at porttitor lectus. Ut dapibus aliquam nibh, in imperdiet libero tincidunt sit amet. Morbi sodales fermeni nibh nec facilisis. Morbi pharetra varius velit, eget varius libero finibus quis. ut ornare.Aenean auctor sem ac ex efficitur Non mattis odio bibendum Sed vitae enim at tortor finibus Integer facilisis eleifend vehicula In hac habitasse platea dictumst Sed molestie orci sem, at semper est molestie ac. Suspendisse cursus feugiat erat, eu posuere massa. Nullam posuere nibh as endisse at dui euismod, rhoncus eros non, imperdiet ipsum.",
         spec: {
           width: 55,
@@ -119,7 +119,7 @@ export const useFrontStore = defineStore("frontStore", {
         price: 379,
         discountPrice: 250,
         qty: 560,
-        category: ["bowl", "desk", "light"],
+        category: ["Glass Coffee Table", "desk", "Exclusive Papillon XL Beds"],
         color: ["red"],
         brand: "Mi",
         tag: ["Chairs", "Sofa", "Single Sofa"],
@@ -157,7 +157,7 @@ export const useFrontStore = defineStore("frontStore", {
         price: 450,
         discountPrice: 150,
         qty: 560,
-        category: ["chair", "table", "fan", "gadget"],
+        category: ["chair", "table", "fan", "Vocan Center Table"],
         color: ["red"],
         brand: "Apple",
         tag: ["Chairs", "Sofa", "Single Sofa"],
@@ -169,8 +169,25 @@ export const useFrontStore = defineStore("frontStore", {
       },
     ],
   }),
-  actions: {
-    
+  actions: {},
+  getters: {
+    allCategories: (state) => {
+      const count = {};
+      state.products.forEach((product) => {
+        product.category.forEach((cate, index) => {
+          const lowerCaseCategory = cate.toLowerCase();
+          if (!count[lowerCaseCategory]) {
+            count[lowerCaseCategory] = { count: 0, thumbs: [] }; // Initialize count and thumbs list
+          }
+          count[lowerCaseCategory].count += 1; // Increment count
+          if (product.thumb && product.thumb[index]) {
+            count[lowerCaseCategory].thumbs.push(product.thumb[index]); // Add thumb to the list if it exists
+          } else {
+            count[lowerCaseCategory].thumbs.push(null); // Handle cases where the thumb might not exist
+          }
+        });
+      });
+      return count;
+    },
   },
-  getters: {},
 });
