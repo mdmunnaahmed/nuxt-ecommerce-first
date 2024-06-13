@@ -195,15 +195,35 @@ export const useFrontStore = defineStore("frontStore", {
       },
       {
         id: 4,
-        thumb: "/images/news/news-4.png",
+        thumb: "/images/news/news-2.png",
         title: " Modern studio apartment design bedroom and living space ",
         date: "04 April 2024",
         author: "User",
         comments: "72",
       },
     ],
+    cart: [],
   }),
-  actions: {},
+  actions: {
+    addProductToCart(id) {
+      // Check if the cart already contains the product
+      const itemInCart = this.cart.find((c) => c.sku === id.sku);
+      if (itemInCart) {
+        console.log("already in the cart");
+        return;
+      }
+
+      // Find the product in the products list and add it to the cart
+      const productToAdd = this.products.find((product) => product.sku === id.sku);
+      if (productToAdd) {
+        productToAdd.qty = id.qty;
+        this.cart.push(productToAdd);
+      }
+    },
+    isInCart(sku) {
+      return this.cart.some((item) => item.sku === sku);
+    },
+  },
   getters: {
     allCategories: (state) => {
       const count = {};

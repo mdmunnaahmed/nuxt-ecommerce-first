@@ -92,7 +92,9 @@
         <p class="count-ratting">(31)</p>
       </div>
       <div class="button-section">
-        <button class="cart-btn">Add to Cart</button>
+        <button class="cart-btn" @click="addToCart(sku)" :disabled="isInCart(sku)" :style="isInCart(sku) ? 'background-color: gray' : ''">
+          {{ isInCart(sku) ? "Already in cart" : "Add to cart" }}
+        </button>
         <div class="fill-pill-btn qty-btn">
           <div class="qty-container featury-qty-container">
             <div class="qty-btn-minus qty-btn mr-1" @click="dec">
@@ -112,7 +114,9 @@
       </div>
     </div>
     <div class="button-section d-block d-md-none">
-      <button class="cart-btn">Add to Cart</button>
+      <button class="cart-btn" @click="addToCart(sku)">
+        {{ isInCart(sku) ? "Already in cart" : "Add to cart" }}
+      </button>
     </div>
   </div>
 </template>
@@ -120,10 +124,12 @@
 <script>
 import useSlug from "~/composables/useSlug";
 import { useFrontStore } from "../../stores/frontStore";
+import { useAuthStore } from "~/stores/authStore";
 export default {
   props: ["thumb", "title", "price", "discountPrice", "sku"],
   setup(props) {
     const frontStore = useFrontStore();
+    const authStore = useAuthStore();
     const { slug } = useSlug(props.title);
     const discount = ((props.price - props.discountPrice) * 100) / props.price;
     const sku = props.sku;
@@ -138,11 +144,14 @@ export default {
         qty.value -= 1;
       }
     };
-    const addToCart = () => {
+    const addToCart = (sku) => {
       frontStore.addProductToCart({
-        
-      })
+        username: authStore.authUser.username,
+        sku: sku,
+        qty: qty.value,
+      });
     };
+
     return {
       discount,
       slug,
@@ -151,6 +160,8 @@ export default {
       dec,
       sku,
       addToCart,
+      frontStore,
+      isInCart: frontStore.isInCart,
     };
   },
 };
