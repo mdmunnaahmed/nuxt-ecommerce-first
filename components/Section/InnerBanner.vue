@@ -5,7 +5,7 @@
         <div class="col-lg-12">
           <div class="breadcrumb-text">
             <h1 class="title wow fadeInUp" data-wow-delay="0.1s">
-              Shopping Cart
+              {{ title }}
             </h1>
             <nav
               aria-label="breadcrumb"
@@ -14,11 +14,11 @@
             >
               <ul class="breadcrumb listing">
                 <li class="breadcrumb-item single-list">
-                  <a href="index.html" class="single">Home</a>
+                  <a href="/" class="single">Home</a>
                 </li>
                 <li class="breadcrumb-item single-list" aria-current="page">
-                  <a href="javascript:void(0)" class="single active"
-                    >Shopping Cart</a
+                  <span class="single active"
+                    >{{ slug }}</span
                   >
                 </li>
               </ul>
@@ -29,3 +29,10 @@
     </div>
   </section>
 </template>
+
+
+<script>
+export default {
+  props: ['title', 'slug']
+}
+</script>

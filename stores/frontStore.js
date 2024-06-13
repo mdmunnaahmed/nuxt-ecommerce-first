@@ -202,7 +202,76 @@ export const useFrontStore = defineStore("frontStore", {
         comments: "72",
       },
     ],
-    cart: [],
+    cart: [
+      {
+        id: 2,
+        sku: "KE-91040",
+        thumb: ["/images/product/product-2.png", "/images/product/product-2.png", "/images/product/product-3.png", "/images/product/product-5.png"],
+        title: "Green Velvet Armchair",
+        pera: 'There are many variations of passages of Lorem Ipsum available but the majority our have suffered alteration in some form, by injected humour, or randomized words which don"t kia look even slightly believable. If you are going to use',
+        price: 250,
+        discountPrice: 150,
+        qty: 8,
+        category: ["electronics", "mobile", "phone", "gadget"],
+        color: ["red"],
+        brand: "Apple",
+        tag: ["Luxury Chat Chair", "Sofa", "Mambo Lamp Light Sofa"],
+        des: "Curasum.",
+        spec: { width: 55, height: 28 },
+        username: "tpsi",
+      },
+      {
+        id: 3,
+        sku: "KE-91539",
+        thumb: ["/images/product/product-5.png", "/images/product/product-2.png", "/images/product/product-3.png", "/images/product/product-5.png"],
+        title: "Regency Side Table",
+        pera: 'There are many variations of passages of Lorem Ipsum available but the majority our have suffered alteration in some form, by injected humour, or randomized words which don"t kia look even slightly believable. If you are going to use',
+        price: 379,
+        discountPrice: 250,
+        qty: 6,
+        category: ["Glass Coffee Table", "desk", "Exclusive Papillon XL Beds"],
+        color: ["red"],
+        brand: "Mi",
+        tag: ["Chairs", "Sofa", "Single Sofa"],
+        des: "Currdiet ipsum.",
+        spec: { width: 55, height: 28 },
+        username: "munns",
+      },
+      {
+        id: 4,
+        sku: "KE-91239",
+        thumb: ["/images/product/product-6.png", "/images/product/product-2.png", "/images/product/product-3.png", "/images/product/product-5.png"],
+        title: "Barrel Chair Avenue",
+        pera: 'There are many variations of passages of Lorem Ipsum available but the majority our have suffered alteration in some form, by injected humour, or randomized words which don"t kia look even slightly believable. If you are going to use',
+        price: 2350,
+        discountPrice: 1550,
+        qty: 1,
+        category: ["rak", "balti"],
+        color: ["red"],
+        brand: "Samsung",
+        tag: ["Chairs", "Sofa", "Single Sofa"],
+        des: "Curabitur egestas malesuada volutpat. Nunc vel vestibulum odio, ac pe",
+        spec: { width: 55, height: 28 },
+        username: "munna",
+      },
+      {
+        id: 1,
+        sku: "KE-91039",
+        thumb: ["/images/product/product-1.png", "/images/product/product-2.png", "/images/product/product-3.png", "/images/product/product-5.png"],
+        title: "Regency Side Table",
+        pera: 'There are many variations of passages of Lorem Ipsum available but the majority our have suffered alteration in some form, by injected humour, or randomized words which don"t kia look even slightly believable. If you are going to use',
+        price: 850,
+        discountPrice: 650,
+        qty: 58,
+        category: ["Exclusive Papillon XL Beds", "shirt", "pant", "Contemporary Sofa"],
+        color: ["red"],
+        brand: "Huawei",
+        tag: ["Chairs", "Sofa", "Single Sofa"],
+        des: "Curabitur posuere massa. Nullam posuere nibh as endisse at dui euismod, rhoncus eros non, imperdiet ipsum.",
+        spec: { width: 55, height: 28 },
+        username: "munns",
+      },
+    ],
   }),
   actions: {
     addProductToCart(id) {
@@ -217,11 +286,24 @@ export const useFrontStore = defineStore("frontStore", {
       const productToAdd = this.products.find((product) => product.sku === id.sku);
       if (productToAdd) {
         productToAdd.qty = id.qty;
+        productToAdd.username = id.username;
         this.cart.push(productToAdd);
       }
     },
     isInCart(sku) {
       return this.cart.some((item) => item.sku === sku);
+    },
+    updateQuantity(sku, newQty) {
+      const item = this.cart.find((product) => product.sku === sku);
+      if (item) {
+        item.qty = newQty;
+      }
+    },
+    deleteFromCart(sku) {
+      const index = this.cart.findIndex((cartItem) => cartItem.sku === sku);
+      if (index !== -1) {
+        this.cart.splice(index, 1);
+      }
     },
   },
   getters: {

@@ -1,6 +1,5 @@
 <template>
-
-<SectionInnerBanner></SectionInnerBanner>
+  <SectionInnerBanner title="Shopping Cart" slug="Cart"></SectionInnerBanner>
 
   <!-- wishlist area S t a r t -->
   <div class="wishlist-product section-padding">
@@ -18,20 +17,17 @@
                   <th>Action</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
+              <tbody v-if="cart.length">
+                <tr v-for="(c, index) in userCart" :key="index">
                   <td class="cart-img">
                     <div class="thumb-img">
-                      <img
-                        src="/images/gallery/wish-thumb-1.png"
-                        alt="img"
-                      />
+                      <img :src="c.thumb[0]" alt="img" />
                     </div>
                   </td>
                   <td class="cart-info">
                     <div class="cart-box">
-                      <a href="shop-details.html">
-                        <p class="cart-pera mb-15">Kelly Bracelet Amchair</p>
+                      <a href="">
+                        <p class="cart-pera mb-15">{{ c.title }}</p>
                       </a>
                       <div class="ratting-section mb-18">
                         <div class="all-ratting flex">
@@ -100,7 +96,7 @@
                           <p class="pera">(22)</p>
                         </div>
                       </div>
-                      <p class="cart-pera">$320</p>
+                      <p class="cart-pera">${{ c.price }}</p>
                     </div>
                   </td>
                   <td class="cart-qty">
@@ -108,19 +104,23 @@
                       <div class="quantity-btn position-relative flex">
                         <input
                           type="text"
-                          name="qty"
-                          value="1"
                           class="num-count"
+                          v-model.number="c.qty"
+                          @input="updateQuantity(c.sku, c.qty)"
                         />
                       </div>
                     </div>
                   </td>
                   <td class="cart-price">
-                    <p class="cart-pera text-center">$320</p>
+                    <p class="cart-pera text-center">$ {{ c.price * c.qty }}</p>
                   </td>
                   <td class="action">
                     <div class="text-center">
-                      <a href="javascript:void(0)" class="del-icon">
+                      <a
+                        href="javascript:void(0)"
+                        class="del-icon"
+                        @click="deleteItem(c.sku)"
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="20"
@@ -150,6 +150,13 @@
                   </td>
                 </tr>
               </tbody>
+              <tbody v-else>
+                <tr>
+                  <td colspan="5" class="text-center">
+                    <p class="text-lg">No items in the Cart</p>
+                  </td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
@@ -157,6 +164,8 @@
     </div>
   </div>
   <!-- End-of wishlist -->
+
+  {{ frontStore.cart }}
 
   <!-- shopping cart card area S t a r t -->
   <section class="all-mini-card bottom-padding1">
@@ -262,14 +271,35 @@
     </div>
   </section>
   <!-- End-of  shopping cart card area-->
-
 </template>
 <script>
+import { useAuthStore } from "~/stores/authStore";
 import { useFrontStore } from "../../stores/frontStore";
 export default {
   setup() {
     const frontStore = useFrontStore();
-    return { frontStore };
+    const authStore = useAuthStore();
+    const cart = frontStore.cart
+    const authUser = authStore.authUser.username;
+    const userCart = computed(() => {
+      return frontStore.cart.filter((item) => item.username === authUser);
+    });
+    const updateQuantity = (sku, qty) => {
+      // Clamp the quantity between 1 and 10
+      const clampedQty = Math.max(1, Math.min(qty, 10));
+      frontStore.updateQuantity(sku, clampedQty);
+    };
+
+    const deleteItem = (sku) => {
+      frontStore.deleteFromCart(sku);
+    };
+    return {
+      frontStore,
+      updateQuantity,
+      deleteItem,
+      userCart,
+      cart
+    };
   },
 };
 </script>
