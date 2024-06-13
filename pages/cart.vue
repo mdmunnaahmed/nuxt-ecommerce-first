@@ -165,8 +165,6 @@
   </div>
   <!-- End-of wishlist -->
 
-  {{ frontStore.cart }}
-
   <!-- shopping cart card area S t a r t -->
   <section class="all-mini-card bottom-padding1">
     <div class="container">
