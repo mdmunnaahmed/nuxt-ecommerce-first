@@ -307,6 +307,7 @@ export const useFrontStore = defineStore("frontStore", {
     },
   },
   getters: {
+    // get all unique cateigories
     allCategories: (state) => {
       const count = {};
       state.products.forEach((product) => {

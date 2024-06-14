@@ -151,7 +151,6 @@ export default {
         qty: qty.value,
       });
     };
-
     return {
       discount,
       slug,
