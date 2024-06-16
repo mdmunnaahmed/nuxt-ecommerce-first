@@ -5,22 +5,17 @@
         <h4 class="price discounted">${{ price }}</h4>
         <h4 class="price text-color-primary">${{ discountPrice }}</h4>
       </div>
-      <button class="wishlist-icon">
-        <img src="/images/icon/wish-icon-2.png" alt="img" />
-      </button>
     </div>
     <div class="product-img-card feature-img-card">
-      <a :href="slug" class="zoomImg">
+      <a :href="'/products/' + slug" class="zoomImg">
         <img :src="thumb" alt="img" />
       </a>
       <div class="discount-badge">
         <span class="percentage">- {{ discount.toFixed(0) }}%</span>
       </div>
-      <div class="special-icon">
-        
-      </div>
+      <div class="special-icon"></div>
     </div>
-    <a :href="slug">
+    <a :href="'/products/' + slug">
       <h4 class="product-title line-clamp-1">{{ title }}</h4>
     </a>
     <div class="product-review">
@@ -34,7 +29,7 @@
       <p class="count-ratting">(52)</p>
     </div>
     <div class="cart-card feature-cart-card d-none d-md-block">
-      <a :href="slug">
+      <a :href="'/products/' + slug">
         <h4 class="product-title line-clamp-1">{{ title }}</h4>
       </a>
       <div class="product-review">
@@ -48,7 +43,12 @@
         <p class="count-ratting">(31)</p>
       </div>
       <div class="button-section">
-        <button class="cart-btn" @click="addToCart(sku)" :disabled="isInCart(sku)" :style="isInCart(sku) ? 'background-color: gray' : ''">
+        <button
+          class="cart-btn"
+          @click="addToCart(sku)"
+          :disabled="isInCart(sku)"
+          :style="isInCart(sku) ? 'background-color: gray' : ''"
+        >
           {{ isInCart(sku) ? "Already in cart" : "Add to cart" }}
         </button>
         <div class="fill-pill-btn qty-btn">

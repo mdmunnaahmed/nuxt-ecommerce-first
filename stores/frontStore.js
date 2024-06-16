@@ -136,7 +136,7 @@ export const useFrontStore = defineStore("frontStore", {
         title: "Barrel Chair Avenue",
         pera: 'There are many variations of passages of Lorem Ipsum available but the majority our have suffered alteration in some form, by injected humour, or randomized words which don"t kia look even slightly believable. If you are going to use',
         price: 2350,
-        discountPrice: 1550,
+        discountPrice: 3550,
         qty: 560,
         category: ["rak", "balti"],
         color: ["red"],
@@ -262,7 +262,7 @@ export const useFrontStore = defineStore("frontStore", {
         pera: 'There are many variations of passages of Lorem Ipsum available but the majority our have suffered alteration in some form, by injected humour, or randomized words which don"t kia look even slightly believable. If you are going to use',
         price: 850,
         discountPrice: 650,
-        qty: 58,
+        qty: 8,
         category: ["Exclusive Papillon XL Beds", "shirt", "pant", "Contemporary Sofa"],
         color: ["red"],
         brand: "Huawei",
@@ -278,7 +278,6 @@ export const useFrontStore = defineStore("frontStore", {
       // Check if the cart already contains the product
       const itemInCart = this.cart.find((c) => c.sku === id.sku);
       if (itemInCart) {
-        console.log("already in the cart");
         return;
       }
 
@@ -304,6 +303,20 @@ export const useFrontStore = defineStore("frontStore", {
       if (index !== -1) {
         this.cart.splice(index, 1);
       }
+    },
+
+    getIdProduct(id) {
+      console.log(id);
+      const item = this.products.find(
+        (i) =>
+          i.title
+            .trim()
+            .toLowerCase()
+            .replaceAll(/[^\w\s]/gi, "")
+            .replaceAll(" ", "-")
+            .replaceAll("--", "-") === id
+      );
+      return item;
     },
   },
   getters: {
