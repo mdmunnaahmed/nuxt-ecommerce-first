@@ -277,14 +277,14 @@ export default {
   setup() {
     const frontStore = useFrontStore();
     const authStore = useAuthStore();
-    const cart = frontStore.cart
+    const cart = frontStore.cart;
     const authUser = authStore.authUser.username;
     const userCart = computed(() => {
       return frontStore.cart.filter((item) => item.username === authUser);
     });
     const updateQuantity = (sku, qty) => {
       // Clamp the quantity between 1 and 10
-      const clampedQty = Math.max(1, Math.min(qty, 10));
+      const clampedQty = Math.max(0, Math.min(qty, 10));
       frontStore.updateQuantity(sku, clampedQty);
     };
 
@@ -296,7 +296,7 @@ export default {
       updateQuantity,
       deleteItem,
       userCart,
-      cart
+      cart,
     };
   },
 };

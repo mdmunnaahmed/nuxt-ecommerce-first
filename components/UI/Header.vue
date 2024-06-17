@@ -355,13 +355,17 @@
 import { useAuthStore } from "~/stores/authStore";
 import { useFrontStore } from "~/stores/frontStore";
 const authStore = useAuthStore();
-const user = authStore.authUser.username;
+
 const frontStore = useFrontStore();
 const isLoggedIn = computed(() => {
   return authStore.isLoggedIn;
 });
+const user = computed(() => {
+  return authStore.authUser ? authStore.authUser.username : "";
+});
 
-const userItems = computed(() => {
+
+const userItems = (() => {
   return frontStore.getItemsByUsername(user).length;
 });
 </script>
