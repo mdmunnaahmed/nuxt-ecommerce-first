@@ -343,7 +343,5 @@ export const useFrontStore = defineStore("frontStore", {
       });
       return count;
     },
-
-    
   },
 });
