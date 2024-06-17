@@ -276,7 +276,7 @@ export const useFrontStore = defineStore("frontStore", {
   actions: {
     addProductToCart(id) {
       // Check if the cart already contains the product
-      const itemInCart = this.cart.find((c) => c.sku === id.sku);
+      const itemInCart = this.cart.find((c) => c.sku === id.sku && c.username === id.username);
       if (itemInCart) {
         return;
       }
@@ -289,8 +289,8 @@ export const useFrontStore = defineStore("frontStore", {
         this.cart.push(productToAdd);
       }
     },
-    isInCart(sku) {
-      return this.cart.some((item) => item.sku === sku);
+    isInCart(sku, user) {
+      return this.cart.some((item) => item.sku === sku && user === item.username);
     },
     updateQuantity(sku, newQty) {
       const item = this.cart.find((product) => product.sku === sku);
@@ -318,6 +318,10 @@ export const useFrontStore = defineStore("frontStore", {
       );
       return item;
     },
+
+    getItemsByUsername (username) {
+      return this.cart.filter(item => item.username === username);
+    },
   },
   getters: {
     // get all unique cateigories
@@ -339,5 +343,7 @@ export const useFrontStore = defineStore("frontStore", {
       });
       return count;
     },
+
+    
   },
 });

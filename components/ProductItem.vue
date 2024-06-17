@@ -45,11 +45,11 @@
       <div class="button-section">
         <button
           class="cart-btn"
-          @click="addToCart(sku)"
+          @click="addToCart(sku, username)"
           :disabled="isInCart(sku)"
           :style="isInCart(sku) ? 'background-color: gray' : ''"
         >
-          {{ isInCart(sku) ? "Already in cart" : "Add to cart" }}
+          {{ isInCart(sku, user) ? "Already in cart" : "Add to cart" }}
         </button>
         <div class="fill-pill-btn qty-btn">
           <div class="qty-container featury-qty-container">
@@ -70,8 +70,8 @@
       </div>
     </div>
     <div class="button-section d-block d-md-none">
-      <button class="cart-btn" @click="addToCart(sku)">
-        {{ isInCart(sku) ? "Already in cart" : "Add to cart" }}
+      <button class="cart-btn" @click="addToCart(sku, username)">
+        {{ isInCart(sku, user) ? "Already in cart" : "Add to cart" }}
       </button>
     </div>
   </div>
@@ -86,6 +86,7 @@ export default {
   setup(props) {
     const frontStore = useFrontStore();
     const authStore = useAuthStore();
+    const user = authStore.authUser.username;
     const { slug } = useSlug(props.title);
     const discount = ((props.price - props.discountPrice) * 100) / props.price;
     const sku = props.sku;
@@ -117,6 +118,7 @@ export default {
       addToCart,
       frontStore,
       isInCart: frontStore.isInCart,
+      user,
     };
   },
 };
